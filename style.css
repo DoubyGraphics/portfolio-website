@@ -542,7 +542,7 @@ html.theme-fade *::after {
 .service-card h3 {
   font-family: var(--font-display);
   font-style: italic;
-  font-weight: 500;
+  font-weight: 400;
   font-size: clamp(1.9rem, 3.6vw, 2.9rem);
   line-height: 1.1;
   margin-bottom: 16px;
