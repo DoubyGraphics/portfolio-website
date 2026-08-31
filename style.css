@@ -650,7 +650,7 @@ html.theme-fade *::after {
   transform: translateY(14px);
   transition: opacity .45s var(--ease), transform .45s var(--ease);
 }
-.work-meta h4 { font-family: var(--font-display); font-style: italic; font-weight: 500; font-size: 1.35rem; line-height: 1.2; }
+.work-meta h4 { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: 1.35rem; line-height: 1.2; }
 .work-meta span { font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--mint); }
 .work-item:hover img, .work-item:focus img { transform: scale(1.06); }
 .work-item:hover .work-overlay, .work-item:focus .work-overlay { opacity: 1; }
