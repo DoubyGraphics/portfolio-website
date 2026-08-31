@@ -3,8 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tobi Studio â€” Graphic Designer for Events & Brands</title>
+  <title>Douby Graphics: Designer for Events & Brands</title>
   <meta name="description" content="Bold flyers, brand identities and campaigns for millennial & gen-Z entrepreneurs and event organizers." />
+  <meta name="theme-color" id="themeColorMeta" content="#0432BC" />
+  <script>
+    // Set the theme before first paint so the correct mode renders instantly (no flash)
+    (function () {
+      var stored = localStorage.getItem('dg-theme');
+      var theme = stored === 'dark' || stored === 'light'
+        ? stored
+        : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet" />
@@ -17,17 +28,40 @@
   <!-- ============ NAV ============ -->
   <header class="nav" id="nav">
     <div class="container nav-inner">
-      <a href="#top" class="logo">tobi<span>.</span>studio</a>
-      <nav class="nav-links" id="navLinks">
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-        <a href="#contact" class="btn btn-sm">Let's talk</a>
-      </nav>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span>
-      </button>
+      <a href="#top" class="logo">douby<span>.</span>graphics</a>
+      <div class="nav-right">
+        <nav class="nav-links" id="navLinks">
+          <a href="#work">Work</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+          <a href="#contact" class="btn btn-sm">Let's talk</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <mask id="moon-mask">
+                <rect width="24" height="24" fill="#fff" />
+                <circle class="mask-circle" cx="12" cy="12" r="6" fill="#000" />
+              </mask>
+              <circle class="sun-core" cx="12" cy="12" r="6" fill="currentColor" mask="url(#moon-mask)" />
+              <g class="rays" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <line x1="20" y1="12" x2="22" y2="12" />
+                <line x1="4" y1="12" x2="2" y2="12" />
+                <line x1="12" y1="4" x2="12" y2="2" />
+                <line x1="12" y1="20" x2="12" y2="22" />
+                <line x1="17.66" y1="6.34" x2="19.07" y2="4.93" />
+                <line x1="6.34" y1="6.34" x2="4.93" y2="4.93" />
+                <line x1="17.66" y1="17.66" x2="19.07" y2="19.07" />
+                <line x1="6.34" y1="17.66" x2="4.93" y2="19.07" />
+              </g>
+            </svg>
+          </button>
+          <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span>
+          </button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -35,25 +69,23 @@
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <span class="hero-badge reveal"><i class="pulse"></i> Available for new projects â€” 2026</span>
-        <h1 class="display reveal" data-delay="100">
-          <em class="hl">Bold visuals</em> for events &amp; brands that refuse to be
-          <span class="scribble">ignored<svg viewBox="0 0 500 150" preserveAspectRatio="none" aria-hidden="true"><path d="M15.2,133.3L15.2,133.3c121.9-7.6,244-9.9,366.1-6.8c34.6,0.9,69.1,2.3,103.7,4" /></svg></span>.
-        </h1>
+        <span class="hero-badge reveal"><i class="pulse"></i> Available for new projects</span>
+<h1 class="display" data-delay="100"></h1>
         <p class="hero-sub reveal" data-delay="200">
-          I'm Tobi â€” a graphic designer crafting flyers, brand identities and campaigns
-          for millennial &amp; gen-Z entrepreneurs, event organizers and creators who
-          want to be impossible to scroll past.
+          Every industry has one name everyone else gets measured against. I design
+          flyers, identities and campaigns that put yours there — bold, disciplined,
+          unmistakably yours.
         </p>
         <div class="hero-cta reveal" data-delay="300">
-          <a href="#work" class="btn">View my work <span class="arrow">â†’</span></a>
+          <a href="#work" class="btn">View my work <span class="arrow">→</span></a>
           <a href="#contact" class="btn btn-ghost">Book a project</a>
+          <a href="https://wa.me/2349137958005" class="btn btn-whatsapp" target="_blank" rel="noopener">Chat on WhatsApp</a>
         </div>
       </div>
       <div class="hero-visual reveal" data-delay="250">
         <div class="hero-stack">
           <img class="stack-img stack-img-1" src="images/JAM 25 17.jpg" alt="JAM event poster design" />
-          <img class="stack-img stack-img-2" src="images/ADC PARTY.jpg" alt="ADC party night flyer design" />
+          <img class="stack-img stack-img-2" src="images/GAMES FEST MAIN BRAND.jpg" alt="Games Fest main brand design" />
         </div>
         <span class="hero-chip display">5+ yrs<br />of craft</span>
       </div>
@@ -64,8 +96,8 @@
   <!-- ============ MARQUEE ============ -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span>Event Flyers <i>âœ¦</i> Brand Identity <i>âœ¦</i> Social Media Design <i>âœ¦</i> Print &amp; Merch <i>âœ¦</i> Campaigns <i>âœ¦</i> Book Covers <i>âœ¦</i>&nbsp;</span>
-      <span>Event Flyers <i>âœ¦</i> Brand Identity <i>âœ¦</i> Social Media Design <i>âœ¦</i> Print &amp; Merch <i>âœ¦</i> Campaigns <i>âœ¦</i> Book Covers <i>âœ¦</i>&nbsp;</span>
+      <span>Event Flyers <i>.</i> Brand Identity <i>.</i> Social Media Design <i>.</i> Print &amp; Merch <i>.</i> Campaigns <i>.</i> Book Covers <i>.</i>&nbsp;</span>
+      <span>Event Flyers <i>.</i> Brand Identity <i>.</i> Social Media Design <i>.</i> Print &amp; Merch <i>.</i> Campaigns <i>.</i> Book Covers <i>.</i>&nbsp;</span>
     </div>
   </div>
   <!-- ============ ABOUT / BIO ============ -->
@@ -77,9 +109,9 @@
       </div>
       <div class="about-text">
         <span class="eyebrow">About me</span>
-        <h2 class="display reveal">The designer behind the noise.</h2>
+        <h2 class="display reveal">The <span class="accent" style="color: var(--blue);">designer</span> behind the noise.</h2>
         <p class="reveal" data-delay="100">
-          Hi, I'm Tobi â€” a graphic designer with 5+ years of turning ideas into
+          Hi, I'm Douby, a graphic designer with 5+ years of turning ideas into
           visuals that stop the scroll. From sold-out event flyers to full brand
           identities, I help young entrepreneurs and event organizers look as good
           as their ambition.
@@ -87,10 +119,10 @@
         <p class="reveal" data-delay="180">
           My work lives at the intersection of culture and craft: bold type, rich
           color and layouts built for the feed as much as the print shop. Whether
-          it's a campus summit, a pepper soup night or a product launch â€” if it
+          it's a campus summit, a pepper soup night or a product launch, if it
           needs to be seen, I'll make it unmissable.
         </p>
-        <p class="about-sign reveal" data-delay="240">â€” Tobi, your designer friend.</p>
+        <p class="about-sign reveal" data-delay="240"> Douby, your designer friend.</p>
         <div class="stats reveal" data-delay="300">
           <div class="stat">
             <span class="stat-num" data-target="150" data-suffix="+">0</span>
@@ -114,48 +146,90 @@
     <div class="container">
       <div class="services-head">
         <span class="eyebrow">What I do</span>
-        <h2 class="display reveal">Services built for brands on the rise.</h2>
+        <h2 class="display reveal"><span class="accent" style="color: var(--blue);">Services</span> built for brands on the rise.</h2>
       </div>
+    </div>
 
-      <div class="service reveal">
-        <span class="service-num">(01)</span>
-        <h3>Event &amp; Promo Design</h3>
-        <div class="tags">
-          <span class="tag">Event Flyers</span><span class="tag">Ticket Art</span>
-          <span class="tag">Campaign Graphics</span><span class="tag">Stage Banners</span>
+    <div class="services-stack">
+      <article class="service-card" style="--card-index: 0;">
+        <div class="service-card-inner container reveal">
+          <div class="service-card-copy">
+            <div class="service-card-top">
+              <span class="service-num">(01)</span>
+              <span class="service-arrow" aria-hidden="true">→</span>
+            </div>
+            <h3>Event &amp; Promo Design</h3>
+            <p>Sold-out-room energy. Flyers, ticket art and stage banners engineered to stop thumbs mid-scroll and fill venues.</p>
+            <div class="tags">
+              <span class="tag">Event Flyers</span><span class="tag">Ticket Art</span>
+              <span class="tag">Campaign Graphics</span><span class="tag">Stage Banners</span>
+            </div>
+          </div>
+          <div class="service-card-media">
+            <img src="images/NIEEE MOONLIGHT main.jpg" alt="Event promo flyer designed by Douby Graphics" loading="lazy" />
+          </div>
         </div>
-        <span class="service-arrow">â†’</span>
-      </div>
+      </article>
 
-      <div class="service reveal" data-delay="80">
-        <span class="service-num">(02)</span>
-        <h3>Brand Identity</h3>
-        <div class="tags">
-          <span class="tag">Logo Design</span><span class="tag">Brand Guidelines</span>
-          <span class="tag">Visual Systems</span><span class="tag">Stationery</span>
+      <article class="service-card" style="--card-index: 1;">
+        <div class="service-card-inner container reveal" data-delay="80">
+          <div class="service-card-copy">
+            <div class="service-card-top">
+              <span class="service-num">(02)</span>
+              <span class="service-arrow" aria-hidden="true">→</span>
+            </div>
+            <h3>Brand Identity</h3>
+            <p>Logos, color systems and guidelines that make your brand instantly recognizable — from profile picture to packaging.</p>
+            <div class="tags">
+              <span class="tag">Logo Design</span><span class="tag">Brand Guidelines</span>
+              <span class="tag">Visual Systems</span><span class="tag">Stationery</span>
+            </div>
+          </div>
+          <div class="service-card-media">
+            <img src="images/GAMES FEST MAIN BRAND.jpg" alt="Brand identity design for Games Fest" loading="lazy" />
+          </div>
         </div>
-        <span class="service-arrow">â†’</span>
-      </div>
+      </article>
 
-      <div class="service reveal" data-delay="160">
-        <span class="service-num">(03)</span>
-        <h3>Social Media Design</h3>
-        <div class="tags">
-          <span class="tag">Content Design</span><span class="tag">Ad Creatives</span>
-          <span class="tag">Story Templates</span><span class="tag">Thumbnails</span>
+      <article class="service-card" style="--card-index: 2;">
+        <div class="service-card-inner container reveal" data-delay="160">
+          <div class="service-card-copy">
+            <div class="service-card-top">
+              <span class="service-num">(03)</span>
+              <span class="service-arrow" aria-hidden="true">→</span>
+            </div>
+            <h3>Social Media Design</h3>
+            <p>Content design, ad creatives and story templates that keep your feed as sharp as your ambition.</p>
+            <div class="tags">
+              <span class="tag">Content Design</span><span class="tag">Ad Creatives</span>
+              <span class="tag">Story Templates</span><span class="tag">Thumbnails</span>
+            </div>
+          </div>
+          <div class="service-card-media">
+            <img src="images/NIEEE Stem.jpg" alt="Social media campaign design for NIEEE Stem" loading="lazy" />
+          </div>
         </div>
-        <span class="service-arrow">â†’</span>
-      </div>
+      </article>
 
-      <div class="service reveal" data-delay="240">
-        <span class="service-num">(04)</span>
-        <h3>Print &amp; Merch</h3>
-        <div class="tags">
-          <span class="tag">Book Covers</span><span class="tag">T-shirt Designs</span>
-          <span class="tag">Posters</span><span class="tag">Invitations</span>
+      <article class="service-card" style="--card-index: 3;">
+        <div class="service-card-inner container reveal" data-delay="240">
+          <div class="service-card-copy">
+            <div class="service-card-top">
+              <span class="service-num">(04)</span>
+              <span class="service-arrow" aria-hidden="true">→</span>
+            </div>
+            <h3>Print &amp; Merch</h3>
+            <p>Book covers, tees, posters and invites — printed pieces people actually keep.</p>
+            <div class="tags">
+              <span class="tag">Book Covers</span><span class="tag">T-shirt Designs</span>
+              <span class="tag">Posters</span><span class="tag">Invitations</span>
+            </div>
+          </div>
+          <div class="service-card-media">
+            <img src="images/NIEEE SHIRT BLACK FRONT.jpg" alt="NIEEE shirt design front view" loading="lazy" />
+          </div>
         </div>
-        <span class="service-arrow">â†’</span>
-      </div>
+      </article>
     </div>
   </section>
   <!-- ============ SELECTED WORK ============ -->
@@ -164,62 +238,62 @@
       <div class="work-head">
         <div>
           <span class="eyebrow">Selected work</span>
-          <h2 class="display reveal">Recent drops from the archive.</h2>
-          <p class="reveal" data-delay="100">Event flyers, brand systems and everything in between â€” click any piece to view it up close.</p>
+          <h2 class="display reveal">Recent drops from the <span class="accent" style="color: var(--blue);">archive</span>.</h2>
+          <p class="reveal" data-delay="100">Event flyers, brand systems and everything in between.lick any piece to view it up close.</p>
         </div>
-        <a class="work-link" href="#contact">Request full portfolio â†’</a>
+        <a class="work-link" href="#contact">Request full portfolio →</a>
       </div>
 
       <div class="work-grid">
-        <figure class="work-item reveal" data-title="JAM Fest '25 â€” Event Identity">
+        <figure class="work-item reveal" data-title="JAM Summit '25” Event Identity">
           <img src="images/JAM 25 16.jpg" alt="JAM Fest event poster design" loading="lazy" />
           <div class="work-overlay"></div>
           <figcaption class="work-meta"><h4>JAM Fest '25</h4><span>Event Identity</span></figcaption>
         </figure>
 
-        <figure class="work-item reveal" data-title="Charley Elections â€” Campaign Design">
+        <figure class="work-item reveal" data-title="Charley Elections” Campaign Design">
           <img src="images/CHARLEY ELECTION 1.jpg" alt="Charley Elections campaign design" loading="lazy" />
           <div class="work-overlay"></div>
           <figcaption class="work-meta"><h4>Charley Elections</h4><span>Campaign Design</span></figcaption>
         </figure>
 
-        <figure class="work-item reveal" data-title="Pioneer â€” Book Cover">
+        <figure class="work-item reveal" data-title="Pioneer” Book Cover">
           <img src="images/PIONEER BOOK COVER@3x.jpg" alt="Pioneer book cover design" loading="lazy" />
           <div class="work-overlay"></div>
           <figcaption class="work-meta"><h4>Pioneer</h4><span>Book Cover</span></figcaption>
         </figure>
 
-        <figure class="work-item reveal" data-title="NADESSTU Cup Finals â€” Sports Campaign">
+        <figure class="work-item reveal" data-title="NADESSTU Cup Finals” Sports Campaign">
           <img src="images/NADESSTU CUP FINALS.jpg" alt="NADESSTU Cup finals flyer" loading="lazy" />
           <div class="work-overlay"></div>
           <figcaption class="work-meta"><h4>NADESSTU Cup Finals</h4><span>Sports Campaign</span></figcaption>
         </figure>
 
-        <figure class="work-item reveal" data-title="Winnie's Invite â€” Invitation Suite">
+        <figure class="work-item reveal" data-title="Winnie's Invite” Invitation Suite">
           <img src="images/COUSIN WINNIE INVITE.jpg" alt="Winnie's invitation design" loading="lazy" />
           <div class="work-overlay"></div>
           <figcaption class="work-meta"><h4>Winnie's Invite</h4><span>Invitation Suite</span></figcaption>
         </figure>
 
-        <figure class="work-item reveal" data-title="App Showcase â€” Digital Presentation">
+        <figure class="work-item reveal" data-title="App Showcase” Digital Presentation">
           <img src="images/Free_iPhone_Mockup_1.jpg" alt="iPhone app presentation mockup" loading="lazy" />
           <div class="work-overlay"></div>
           <figcaption class="work-meta"><h4>App Showcase</h4><span>Digital Presentation</span></figcaption>
         </figure>
 
-        <figure class="work-item reveal" data-title="AFC 90 Days â€” Challenge Branding">
+        <figure class="work-item reveal" data-title="AFC 90 Days” Challenge Branding">
           <img src="images/AFC 90 Days.jpg" alt="AFC 90 Days challenge design" loading="lazy" />
           <div class="work-overlay"></div>
           <figcaption class="work-meta"><h4>AFC 90 Days</h4><span>Challenge Branding</span></figcaption>
         </figure>
 
-        <figure class="work-item reveal" data-title="NIEEE Summit â€” Web Design">
+        <figure class="work-item reveal" data-title="NIEEE Summit” Web Design">
           <img src="images/NIEEE WEBSITE MOCKUP.jpg" alt="NIEEE website design mockup" loading="lazy" />
           <div class="work-overlay"></div>
           <figcaption class="work-meta"><h4>NIEEE Summit</h4><span>Web Design</span></figcaption>
         </figure>
 
-        <figure class="work-item reveal" data-title="SSH Clinic â€” Advertising">
+        <figure class="work-item reveal" data-title="SSH Clinic” Advertising">
           <img src="images/SSH ADVERT.jpg" alt="SSH advert design" loading="lazy" />
           <div class="work-overlay"></div>
           <figcaption class="work-meta"><h4>SSH Clinic</h4><span>Advertising</span></figcaption>
@@ -231,9 +305,9 @@
   <!-- ============ CTA ============ -->
   <section class="cta" id="contact">
     <div class="container">
-      <h2 class="display reveal">Have an event or a brand that deserves better? Let's make something people <em>remember.</em></h2>
-      <a href="mailto:hello@tobistudio.design" class="btn reveal" data-delay="120">Start a project <span class="arrow">â†’</span></a>
-      <p class="cta-note reveal" data-delay="200">Usually replies within 24 hours â€” no brief too small.</p>
+      <h2 class="display reveal">Have an <span class="accent" style="color: var(--mint);">event</span> or a <span class="accent" style="color: var(--mint);">brand</span> that deserves better? Let's make something people <span class="accent" style="color: var(--mint);">remember</span>.</h2>
+      <a href="mailto:doubygraphics@gmail.com" class="btn reveal" data-delay="120">Start a project <span class="arrow">→</span></a>
+      <p class="cta-note reveal" data-delay="200">Usually replies within 24 hours” no brief too small.</p>
     </div>
   </section>
 
@@ -241,19 +315,19 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-top">
-        <a class="footer-email" href="mailto:hello@tobistudio.design">hello@tobistudio.design</a>
+        <a class="footer-email" href="mailto:doubygraphics@gmail.com" >doubygraphics@gmail.com</a>
         <div>
           <span class="footer-label">Find me on</span>
           <div class="socials">
             <a href="#" aria-label="Instagram">Instagram</a>
             <a href="#" aria-label="Behance">Behance</a>
-            <a href="#" aria-label="WhatsApp">WhatsApp</a>
+            <a href="https://wa.me/2349137958005" aria-label="WhatsApp" target="_blank" rel="noopener">WhatsApp</a>
             <a href="#" aria-label="X">X</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>Â© <span id="year"></span> Tobi Studio. Designed with far too much coffee.</span>
+        <span>Â© <span id="year"></span> Douby Graphics. Designed with far too much coffee.</span>
         <a href="#top">Back to top â†‘</a>
       </div>
     </div>
