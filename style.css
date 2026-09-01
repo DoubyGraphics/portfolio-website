@@ -477,6 +477,134 @@ html.theme-fade *::after {
 }
 
 /* ============================================
+   SKILLS — toolkit cards + beyond-the-canvas pills
+   ============================================ */
+.skills {
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 110px 0 120px;
+}
+.skills-head { max-width: 640px; margin-bottom: 60px; }
+.skills-head h2 { font-size: clamp(2rem, 3.6vw, 2.9rem); }
+.skills-head p { color: var(--muted); font-weight: 300; margin-top: 16px; }
+
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+
+.app-card {
+  position: relative;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 26px 22px;
+  overflow: hidden;
+  transition: transform .4s var(--ease), box-shadow .4s, border-color .4s;
+}
+/* Brand hairline, revealed on hover — echoes the service cards */
+.app-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--mint), var(--blue));
+  opacity: 0;
+  transition: opacity .4s var(--ease);
+}
+.app-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px rgba(1, 4, 64, .12);
+  border-color: var(--brand-ink);
+}
+.app-card:hover::before { opacity: .85; }
+
+.app-suite {
+  font-size: 10.5px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.app-mark {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.9rem;
+  line-height: 1;
+  color: var(--brand-ink);
+  display: inline-grid;
+  place-items: center;
+  width: 60px; height: 60px;
+  border: 1px solid var(--tag-border);
+  border-radius: 50%;
+  margin: 18px 0;
+  transition: background .35s, color .35s, border-color .35s, transform .35s var(--ease);
+}
+.app-mark img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  display: block;
+}
+.app-card:hover .app-mark {
+  border-color: var(--mint);
+  transform: scale(1.08);
+}
+.app-card h4 { font-size: 15.5px; font-weight: 600; margin-bottom: 6px; }
+.app-card p { font-size: 13px; line-height: 1.55; color: var(--muted); font-weight: 300; }
+
+.skills-extra {
+  display: grid;
+  grid-template-columns: 0.9fr 1.4fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+  margin-top: 76px;
+  padding-top: 56px;
+  border-top: 1px solid var(--line);
+}
+.skills-extra h3 {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  margin-bottom: 12px;
+}
+.skills-extra-copy p { color: var(--muted); font-weight: 300; max-width: 34ch; }
+
+.skills-cloud {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13.5px;
+  font-weight: 500;
+  padding: 12px 22px;
+  border: 1px solid var(--tag-border);
+  border-radius: 999px;
+  cursor: default;
+  transition: background .3s, color .3s, border-color .3s, transform .3s var(--ease);
+}
+.skill-pill::before { content: '✳'; color: var(--mint); font-size: .95em; }
+.skill-pill:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+  transform: translateY(-3px);
+}
+.skill-pill:hover::before { color: #fff; }
+
+@media (prefers-reduced-motion: reduce) {
+  .app-card, .skill-pill { transition: none; }
+  .app-card:hover, .skill-pill:hover { transform: none; }
+}
+
+/* ============================================
    SERVICES — sticky card stack (scroll-driven
    scale + brightness + blur, like a deck that
    gets covered by the next panel)
@@ -768,6 +896,8 @@ html.theme-fade *::after {
   .hero h1 { max-width: 20ch; }
   .about-grid { grid-template-columns: 1fr; gap: 80px; }
   .about-img { max-width: 480px; }
+  .apps-grid { grid-template-columns: repeat(3, 1fr); }
+  .skills-extra { grid-template-columns: 1fr; gap: 36px; }
   .work-grid { columns: 2; }
   .service-card { width: calc(100% - 64px); }
   .service-card-inner { grid-template-columns: 1fr; min-height: 0; gap: 30px; }
@@ -804,6 +934,9 @@ html.theme-fade *::after {
   .about-badge { display: none; }
   .stats { gap: 34px; }
   .stat-num { font-size: 2.3rem; }
+  .skills { padding: 90px 0; }
+  .apps-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .app-card:last-child:nth-child(odd) { grid-column: span 2; }
   .services { padding: 90px 0; }
   .services-stack { --nav-h: 66px; --peek: 10px; }
   .service-card { width: calc(100% - 40px); margin-bottom: 24px; }
