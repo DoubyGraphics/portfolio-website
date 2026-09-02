@@ -195,11 +195,29 @@ if (window.matchMedia('(pointer: fine)').matches) {
     requestAnimationFrame(loop);
   })();
 
-  document.querySelectorAll('a, button, .work-item, .service-card').forEach(el => {
+  document.querySelectorAll('a, button, .work-item, .service-card, .price-card, .quick-list li').forEach(el => {
     el.addEventListener('mouseenter', () => cursor.classList.add('grow'));
     el.addEventListener('mouseleave', () => cursor.classList.remove('grow'));
   });
 }
+
+/* ---------- Pricing: currency toggle (Naira / Dollar) ---------- */
+const currencyBtns = document.querySelectorAll('.currency-btn');
+const currencyNodes = document.querySelectorAll('[data-ngn]');
+
+currencyBtns.forEach(btn => btn.addEventListener('click', () => {
+  const currency = btn.dataset.currency;
+
+  currencyBtns.forEach(b => {
+    const active = b === btn;
+    b.classList.toggle('active', active);
+    b.setAttribute('aria-pressed', String(active));
+  });
+
+  currencyNodes.forEach(node => {
+    node.textContent = currency === 'usd' ? node.dataset.usd : node.dataset.ngn;
+  });
+}));
 
 /* ---------- Footer year ---------- */
 document.getElementById('year').textContent = new Date().getFullYear();
