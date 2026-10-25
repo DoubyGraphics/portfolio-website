@@ -1,6 +1,6 @@
 /* ============================================
    TOBI STUDIO — Portfolio
-   Palette: #0432BC (blue) · #0FF29F (mint) · #010440 (navy)
+   Palette: #0432BC (blue) · #9af376 (mint) · #162531 (navy)
    Type: Poppins (body) + IvyPresto Display Italic
    (IvyPresto is a licensed font — Playfair Display Italic
    is loaded as a free visual fallback.)
@@ -8,8 +8,8 @@
 
 :root {
   --blue: #0432BC;
-  --mint: #0FF29F;
-  --navy: #010440;
+  --mint: #9af376;
+  --navy: #162531;
   --bg: #F5F7FF;
   --ink: #0A0E2A;
   --muted: #5A6080;
@@ -27,15 +27,16 @@
 
 /* ---------- Dark theme ---------- */
 :root[data-theme='dark'] {
-  --bg: #05082B;
+  --bg: #0D1A23;
   --ink: #EDEFFF;
   --muted: #A3AACF;
-  --line: #262D57;
-  --surface: #0C1239;
-  --tag-border: #343C6E;
+  --line: #253545;
+  --surface: #132029;
+  --tag-border: #2E4050;
   --brand-ink: #93A9FF;
   color-scheme: dark;
 }
+[data-theme='dark'] .accent { color: var(--mint) !important; }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -103,7 +104,7 @@ a { text-decoration: none; color: inherit; }
   cursor: pointer;
   transition: transform .3s var(--ease), box-shadow .3s, background .3s, color .3s;
 }
-.btn:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(15, 242, 159, .35); }
+.btn:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(154, 243, 118, .35); }
 .btn .arrow { transition: transform .3s var(--ease); }
 .btn:hover .arrow { transform: translateX(5px); }
 
@@ -244,10 +245,10 @@ html.theme-fade *::after {
 }
 .nav.scrolled {
   padding: 14px 0;
-  background: rgba(1, 4, 64, .82);
+  background: rgba(22, 37, 49, .82);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 6px 30px rgba(1, 4, 64, .25);
+  box-shadow: 0 6px 30px rgba(22, 37, 49, .25);
 }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; }
 
@@ -300,7 +301,7 @@ html.theme-fade *::after {
   min-height: 100svh;
   display: flex;
   align-items: center;
-  background: var(--blue);
+  background: linear-gradient(135deg, #162531 0%, #1a3040 40%, #1e3a48 60%, #162531 100%);
   color: #fff;
   padding: 170px 0 110px;
   overflow: hidden;
@@ -310,8 +311,9 @@ html.theme-fade *::after {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 82% 12%, rgba(15, 242, 159, .22), transparent 42%),
-    radial-gradient(circle at 8% 90%, rgba(1, 4, 64, .65), transparent 50%);
+    radial-gradient(ellipse 80% 60% at 75% 15%, rgba(154, 243, 118, .18), transparent 55%),
+    radial-gradient(ellipse 60% 80% at 10% 85%, rgba(154, 243, 118, .08), transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(22, 37, 49, .4), transparent 70%);
   pointer-events: none;
 }
 .hero-grid {
@@ -335,9 +337,9 @@ html.theme-fade *::after {
 }
 .pulse { width: 9px; height: 9px; border-radius: 50%; background: var(--mint); animation: pulse 1.8s infinite; }
 @keyframes pulse {
-  0%   { box-shadow: 0 0 0 0 rgba(15, 242, 159, .55); }
-  70%  { box-shadow: 0 0 0 10px rgba(15, 242, 159, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(15, 242, 159, 0); }
+  0%   { box-shadow: 0 0 0 0 rgba(154, 243, 118, .55); }
+  70%  { box-shadow: 0 0 0 10px rgba(154, 243, 118, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(154, 243, 118, 0); }
 }
 
 .hero h1 { font-size: clamp(2.7rem, 5.6vw, 4.5rem); max-width: 13ch; margin-bottom: 26px; }
@@ -354,7 +356,7 @@ html.theme-fade *::after {
   object-fit: cover;
   border-radius: var(--radius);
   border: 4px solid rgba(255, 255, 255, .14);
-  box-shadow: 0 30px 60px rgba(1, 4, 64, .45);
+  box-shadow: 0 30px 60px rgba(22, 37, 49, .45);
 }
 .stack-img-1 { top: 6%; right: 4%; transform: rotate(4deg); animation: float 6s ease-in-out infinite; }
 .stack-img-2 { bottom: 4%; left: 0; width: 58%; transform: rotate(-5deg); animation: float 7s ease-in-out 1.2s infinite; }
@@ -369,7 +371,7 @@ html.theme-fade *::after {
   padding: 18px 22px;
   border-radius: 14px;
   transform: rotate(-3deg);
-  box-shadow: 0 18px 40px rgba(1, 4, 64, .35);
+  box-shadow: 0 18px 40px rgba(22, 37, 49, .35);
 }
 .scroll-hint {
   position: absolute;
@@ -415,18 +417,18 @@ html.theme-fade *::after {
   gap: 90px;
   align-items: center;
 }
-.about-img { position: relative; }
+.about-img { position: relative; max-width: 440px; }
 .about-img img {
   width: 100%;
-  border-radius: var(--radius);
-  box-shadow: 0 30px 60px rgba(1, 4, 64, .18);
+  border-radius: 36px;
+  box-shadow: 0 30px 60px rgba(22, 37, 49, .18);
 }
 .about-img::after {
   content: '';
   position: absolute;
-  top: 28px; left: 28px; right: -28px; bottom: -28px;
+  top: 24px; left: 24px; right: -24px; bottom: -24px;
   border: 2px solid var(--mint);
-  border-radius: var(--radius);
+  border-radius: 36px;
   z-index: -1;
 }
 .about-badge {
@@ -438,7 +440,7 @@ html.theme-fade *::after {
   padding: 16px 22px;
   border-radius: 14px;
   transform: rotate(-3deg);
-  box-shadow: 0 18px 40px rgba(1, 4, 64, .25);
+  box-shadow: 0 18px 40px rgba(22, 37, 49, .25);
 }
 .about-badge strong { color: var(--mint); font-family: var(--font-display); font-style: italic; font-size: 1.6rem; display: block; line-height: 1.1; }
 
@@ -516,7 +518,7 @@ html.theme-fade *::after {
 }
 .app-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 24px 50px rgba(1, 4, 64, .12);
+  box-shadow: 0 24px 50px rgba(22, 37, 49, .12);
   border-color: var(--brand-ink);
 }
 .app-card:hover::before { opacity: .85; }
@@ -639,7 +641,7 @@ html.theme-fade *::after {
   border-radius: calc(var(--radius) + 6px);
   padding: clamp(36px, 5vw, 64px);
   min-height: min(480px, 72vh);
-  box-shadow: 0 30px 80px rgba(1, 4, 64, .10);
+  box-shadow: 0 30px 80px rgba(22, 37, 49, .10);
   overflow: hidden;
 }
 
@@ -706,7 +708,7 @@ html.theme-fade *::after {
   border-radius: var(--radius);
   overflow: hidden;
   aspect-ratio: 4 / 3;
-  box-shadow: 0 24px 60px rgba(1, 4, 64, .16);
+  box-shadow: 0 24px 60px rgba(22, 37, 49, .16);
 }
 
 .service-card-media img {
@@ -766,7 +768,7 @@ html.theme-fade *::after {
 .work-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(1, 4, 64, .88) 8%, transparent 55%);
+  background: linear-gradient(to top, rgba(22, 37, 49, .88) 8%, transparent 55%);
   opacity: 0;
   transition: opacity .45s var(--ease);
 }
@@ -800,7 +802,7 @@ html.theme-fade *::after {
   position: absolute;
   inset: 0;
   background: radial-gradient(circle at 50% 120%, rgba(4, 50, 188, .55), transparent 55%),
-              radial-gradient(circle at 90% 0%, rgba(15, 242, 159, .12), transparent 40%);
+              radial-gradient(circle at 90% 0%, rgba(154, 243, 118, .12), transparent 40%);
 }
 .cta .container { position: relative; }
 .cta h2 { font-size: clamp(2.3rem, 5vw, 3.9rem); max-width: 18ch; margin: 0 auto 34px; }
@@ -811,7 +813,7 @@ html.theme-fade *::after {
 /* ============================================
    FOOTER
    ============================================ */
-.footer { background: #010438; color: #fff; padding: 90px 0 34px; }
+.footer { background: #0F1D27; color: #fff; padding: 90px 0 34px; }
 .footer-top {
   display: flex;
   flex-wrap: wrap;
@@ -860,7 +862,7 @@ html.theme-fade *::after {
   position: fixed;
   inset: 0;
   z-index: 200;
-  background: rgba(1, 4, 64, .93);
+  background: rgba(22, 37, 49, .93);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1078,12 +1080,12 @@ html.theme-fade *::after {
 }
 .price-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 24px 50px rgba(1, 4, 64, .12);
+  box-shadow: 0 24px 50px rgba(22, 37, 49, .12);
   border-color: var(--brand-ink);
 }
 .price-card:hover::before { opacity: .85; }
 
-.price-card.featured { border-color: var(--mint); box-shadow: 0 18px 44px rgba(1, 4, 64, .10); }
+.price-card.featured { border-color: var(--mint); box-shadow: 0 18px 44px rgba(22, 37, 49, .10); }
 .price-card.featured::before { opacity: 1; }
 
 .flag {
@@ -1100,7 +1102,7 @@ html.theme-fade *::after {
   padding: 7px 16px;
   border-radius: 999px;
   white-space: nowrap;
-  box-shadow: 0 10px 24px rgba(15, 242, 159, .35);
+  box-shadow: 0 10px 24px rgba(154, 243, 118, .35);
 }
 
 .price-card-top { margin-bottom: 18px; }
@@ -1179,7 +1181,7 @@ html.theme-fade *::after {
   color: var(--navy);
 }
 .price-card.featured .btn-card:hover {
-  box-shadow: 0 14px 30px rgba(15, 242, 159, .35);
+  box-shadow: 0 14px 30px rgba(154, 243, 118, .35);
   transform: translateY(-2px);
 }
 
@@ -1204,7 +1206,7 @@ html.theme-fade *::after {
 .quick-list li:hover {
   transform: translateY(-3px);
   border-color: var(--brand-ink);
-  box-shadow: 0 16px 34px rgba(1, 4, 64, .10);
+  box-shadow: 0 16px 34px rgba(22, 37, 49, .10);
 }
 .quick-info h4 { font-size: 14.5px; font-weight: 600; }
 .quick-info p { font-size: 12.5px; color: var(--muted); font-weight: 300; margin-top: 2px; }

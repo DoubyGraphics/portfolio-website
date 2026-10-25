@@ -32,7 +32,7 @@ const themeColorMeta = document.getElementById('themeColorMeta');
 
 const THEME_META = {
   light: { label: 'Switch to dark mode', color: '#0432BC' },
-  dark:  { label: 'Switch to light mode', color: '#05082B' }
+  dark:  { label: 'Switch to light mode', color: '#0D1A23' }
 };
 
 const syncThemeUI = () => {
